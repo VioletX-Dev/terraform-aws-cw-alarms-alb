@@ -1,11 +1,11 @@
-resource "aws_cloudwatch_metric_alarm" "sqs_messages_age" {
+resource "aws_cloudwatch_metric_alarm" "alb_5xx_errors" {
   for_each = var.alb_names
 
   ## metric
   namespace   = "AWS/ApplicationELB"
   metric_name = "HTTPCode_ELB_5XX_Count"
   dimensions = {
-    QueueName = each.value
+    LoadBalancer = each.value
   }
   period = 300
 
