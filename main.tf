@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "alb_5xx_errors" {
   evaluation_periods  = 2
 
   ## alarm 
-  alarm_name        = "${each.value}-5XX-errors"
+  alarm_name        = "${each.value}-lb-5XX-errors"
   alarm_description = "5XX Errors in ${each.value} are higher than 10 in 5 minutes. Normal is close to Zero."
   actions_enabled   = "true"
   alarm_actions     = [var.alarm_notification_channel]
