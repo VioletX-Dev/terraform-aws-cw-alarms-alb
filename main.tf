@@ -76,7 +76,7 @@ resource "aws_cloudwatch_metric_alarm" "alb_healthy_host_errors" {
   evaluation_periods  = 2
 
   ## alarm 
-  alarm_name        = "${each.value}-lb-latency"
+  alarm_name        = "${each.value}-lb-unhealthy-hosts-errors"
   alarm_description = "Hosts of ${each.value} are unhealthy in 5 minutes. Normal is 0 unhealthy hosts."
   actions_enabled   = "true"
   alarm_actions     = [var.alarm_notification_channel]
